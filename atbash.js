@@ -13,5 +13,5 @@ function atbash(statement){
 	return decoded;
 }
 
-console.log(atbash("abcdefghijklmnopqrstuvwxyz"));
+atbash("abcdefghijklmnopqrstuvwxyz");
 
