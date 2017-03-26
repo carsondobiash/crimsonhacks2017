@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>CrimsonHacks 2017</title>
+    <title>CrimsonHacks 2017 - CryptoMania</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +42,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Crypto Crazy</a>
+          <a class="navbar-brand" href="#">CryptoMania</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <!--<form class="navbar-form navbar-right">
@@ -117,8 +117,11 @@
         for(var i = 0; i < valueInput.length; ++i){
           var letter = valueInput.charAt(i);
           var index = alphabet.indexOf(letter);
+          
           if(letter == " "){
             var encryptedLetter = " ";
+          }else if(letter == letter.toUpperCase()){
+            var encryptedLetter = reverse.charAt(index).toUpperCase();
           }else{
             var encryptedLetter = reverse.charAt(index);            
           }
