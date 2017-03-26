@@ -148,7 +148,7 @@
       document.getElementById("decryptMe").onclick = function (){
        var alphabet = "abcdefghijklmnopqrstuvwxyz";
         var decoded = '';
-        var valueInput = document.getElementById("input").value + " ";
+        var valueInput = document.getElementById("ouput").value + " ";
         var kmove=parseInt(document.getElementById("key").value);
         var num = "";
         var spAdd=true; 
@@ -180,7 +180,7 @@
             num+=valueInput.charAt(i);
           }
         }
-        document.getElementById("output").value = decoded;
+        document.getElementById("input").value = decoded;
       }
     </script>
   </body>
