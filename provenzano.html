@@ -88,8 +88,23 @@
       </div>
       <p>Input a value: <input type="text" id="key"></p><br>
       <br>
-      
-      <p><a class="btn btn-default" style="color:white; background-color:green; border-color:white;" id="encryptMe" role="button">Encrypt Me! &raquo;</a></p>
+      <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-6">
+          <p><a class="btn btn-default" style="color:white; background-color:green; border-color:white;" id="encryptMe" role="button">Encrypt Me! &raquo;</a></p>
+          <!--<p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>-->
+        </div>
+        <!--<div class="col-md-4">
+          <h2></h2>
+          <p>Ciphers and Cryptology is  </p>
+          <p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>
+        </div>-->
+        <div class="col-md-6">
+          <p><a class="btn btn-default" style="color:white; background-color:green; border-color:white;" id="decryptMe" role="button">Decrypt Me! &raquo;</a></p>
+          <!--<p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>-->
+        </div>
+      </div>
 
       <hr>
 
@@ -128,6 +143,45 @@
         }
         document.getElementById("output").value = decoded;
       } 
+    </script>
+    <script>
+      document.getElementById("decryptMe").onclick = function (){
+       var alphabet = "abcdefghijklmnopqrstuvwxyz";
+        var decoded = '';
+        var valueInput = document.getElementById("ouput").value + " ";
+        var kmove=parseInt(document.getElementById("key").value);
+        var num = "";
+        var spAdd=true; 
+        for(var i = 0; i < valueInput.length; ++i){
+          if(i==0 && valueInput.charAt(i)!=" "){
+            num=valueInput.charAt(i);
+          }
+          else if((valueInput.charAt(i)) == " "){
+            if(num==""){
+              var encryptionLetter=" ";
+            }
+            else{
+                var encryptedLetter = (alphabet.charAt((parseInt(num)-kmove)%26) );
+                num="";
+                var spAdd=false;      
+            }
+              decoded+=encryptedLetter;
+              encryptedLetter="";
+              if(spAdd==true){
+                decoded+=' ';
+              }
+              spAdd=true; 
+          }
+          else if((i-1)==valueInput.length && valueInput.charAt(i)!=" "){
+            var encryptedLetter = (alphabet.charAt((parseInt(num)-kmove)%26) );
+            decoded+=encryptedLetter;
+          }
+          else{
+            num+=valueInput.charAt(i);
+          }
+        }
+        document.getElementById("input").value = decoded;
+      }
     </script>
   </body>
 </html>
