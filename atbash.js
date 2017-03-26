@@ -13,5 +13,3 @@ function atbash(statement){
 	return decoded;
 }
 
-atbash("abcdefghijklmnopqrstuvwxyz");
-
