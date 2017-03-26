@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
-
+    <!-- OPERATIONAL NEEDS HELP!!!!-->
     <title>CryptoMania</title>
 
     <!-- Bootstrap core CSS -->
@@ -61,8 +61,8 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron" style="background: url('cryptphoto.png');background-repeat:no-repeat;">
     <div class="container">
-        <h1 style="color: white">Provenzano Encryption</h1>
-        <p style="color: white">Use the text box below to input the text you wish to cipher. The Provenzano cipher, is a variation on the Caesar Cipher, is one of the simplest forms of encryption. It is a substitution cipher where each letter in the original messageis replaced with a number corresponding to it's place in the alphabet plus the key. Originally used by a Mafia member this cipher was easy to decipher and ultimately lead to his demise.</p>
+        <h1 style="color: white">Provenzano Decryption</h1>
+        <p style="color: white">Use the text box below to input the text you wish to decipher. The Provenzano cipher, is a variation on the Caesar Cipher, is one of the simplest forms of encryption. It is a substitution cipher where each letter in the original messageis replaced with a number corresponding to it's place in the alphabet plus the key. Originally used by a Mafia member this cipher was easy to decipher and ultimately lead to his demise.</p>
         <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>-->
       </div>
     </div>
@@ -71,7 +71,7 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-6">
-          <h2>Text to Encrypt:</h2>
+          <h2>Numbers to Decrypt: [Broken]</h2>
           <textarea id="input"></textarea>
           <!--<p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>-->
         </div>
@@ -81,15 +81,15 @@
           <p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>
         </div>-->
         <div class="col-md-6">
-          <h2>Encrypted Text:</h2>
+          <h2>Decrypted Text:</h2>
           <textarea id="output"></textarea>
           <!--<p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>-->
         </div>
       </div>
-      <p>Input a value: <input type="text" id="key"></p><br>
+      <p>Input the key value: <input type="text" id="key"></p><br>
       <br>
       
-      <p><a class="btn btn-default" style="color:white; background-color:green; border-color:white;" id="encryptMe" role="button">Encrypt Me! &raquo;</a></p>
+      <p><a class="btn btn-default" style="color:white; background-color:green; border-color:white;" id="decryptMe" role="button">Decrypt Me! &raquo;</a></p>
 
       <hr>
 
@@ -108,26 +108,32 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
     <script>
-        document.getElementById("encryptMe").onclick = function (){
-        var alphabet = "abcdefghijklmnopqrstuvwxyz";
+      document.getElementById("decryptMe").onclick = function (){
+       var alphabet = "abcdefghijklmnopqrstuvwxyz";
         var decoded = '';
         var valueInput = document.getElementById("input").value;
         var kmove=parseInt(document.getElementById("key").value);
+        var num = "";
         for(var i = 0; i < valueInput.length; ++i){
-          var letter = valueInput.charAt(i).toLowerCase();
-          if(letter == " "){
-            var encryptedLetter = " ";
-          }else{
-            for (var j = 0;j<alphabet.length; j++) {
-              if(alphabet.charAt(j)==letter){
-                var encryptedLetter = ((j + kmove)%26).toString() + " ";
-              }
-            }           
+          if(i==0 && valueInput.charAt(i)!=" "){
+            num=valueInput.charAt(i);
           }
-          decoded += encryptedLetter;
+          else if((valueInput.charAt(i)) == " "){
+            if(num == " "){
+              var encryptionLetter=" ";
+            }
+            else{
+                var encryptedLetter = (alphabet.charAt((parseInt(num)-kmove)%26) );
+                num="";          
+            }
+            decoded+=encryptedLetter;
+          }
+          else{
+            num+=valueInput.charAt(i);
+          }
         }
         document.getElementById("output").value = decoded;
-      } 
+      }
     </script>
   </body>
 </html>
