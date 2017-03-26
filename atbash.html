@@ -81,7 +81,7 @@
           <p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>
         </div>-->
         <div class="col-md-6">
-          <h2>Encrypted Text:</h2>
+          <h2>Text to Decrypt:</h2>
           <textarea id="output"></textarea>
           <!--<p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>-->
         </div>
@@ -89,7 +89,24 @@
       
       <br>
 
-      <p><a class="btn btn-default" style="color:white; background-color:green; border-color:white;" id="encryptMe" role="button">Encrypt Me! &raquo;</a></p>
+      <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-6">
+          <p><a class="btn btn-default" style="color:white; background-color:green; border-color:white;" id="encryptMe" role="button">Encrypt Me! &raquo;</a></p>
+          <!--<p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>-->
+        </div>
+        <!--<div class="col-md-4">
+          <h2></h2>
+          <p>Ciphers and Cryptology is  </p>
+          <p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>
+        </div>-->
+        <div class="col-md-6">
+          <p><a class="btn btn-default" style="color:white; background-color:green; border-color:white;" id="decryptMe" role="button">Decrypt Me! &raquo;</a></p>
+          <!--<p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>-->
+        </div>
+      </div>
+      <br>
 
       <hr>
 
@@ -128,6 +145,29 @@
           decoded += encryptedLetter;
         }
         document.getElementById("output").value = decoded;
+      }   
+    </script>
+    <script>
+      document.getElementById("decryptMe").onclick = function (){
+        var alphabet = "abcdefghijklmnopqrstuvwxyz";
+        var reverse = "zyxwvutsrqponmlkjihgfedcba";
+        var decoded = '';
+        var valueInput = document.getElementById("output").value;
+
+        for(var i = 0; i < valueInput.length; ++i){
+          var letter = valueInput.charAt(i);
+          var index = alphabet.indexOf(letter);
+          
+          if(letter == " "){
+            var encryptedLetter = " ";
+          }else if(letter == letter.toUpperCase()){
+            var encryptedLetter = reverse.charAt(index).toUpperCase();
+          }else{
+            var encryptedLetter = reverse.charAt(index);            
+          }
+          decoded += encryptedLetter;
+        }
+        document.getElementById("input").value = decoded;
       }   
     </script>
   </body>
