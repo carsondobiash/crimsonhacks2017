@@ -71,7 +71,7 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-6">
-          <h2>Numbers to Decrypt: [Broken]</h2>
+          <h2>Numbers to Decrypt: </h2>
           <textarea id="input"></textarea>
           <!--<p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>-->
         </div>
@@ -111,21 +111,32 @@
       document.getElementById("decryptMe").onclick = function (){
        var alphabet = "abcdefghijklmnopqrstuvwxyz";
         var decoded = '';
-        var valueInput = document.getElementById("input").value;
+        var valueInput = document.getElementById("input").value + " ";
         var kmove=parseInt(document.getElementById("key").value);
         var num = "";
+        var spAdd=true; 
         for(var i = 0; i < valueInput.length; ++i){
           if(i==0 && valueInput.charAt(i)!=" "){
             num=valueInput.charAt(i);
           }
           else if((valueInput.charAt(i)) == " "){
-            if(num == " "){
+            if(num==""){
               var encryptionLetter=" ";
             }
             else{
                 var encryptedLetter = (alphabet.charAt((parseInt(num)-kmove)%26) );
-                num="";          
+                num="";
+                var spAdd=false;      
             }
+              decoded+=encryptedLetter;
+              encryptedLetter="";
+              if(spAdd==true){
+                decoded+=' ';
+              }
+              spAdd=true; 
+          }
+          else if((i-1)==valueInput.length && valueInput.charAt(i)!=" "){
+            var encryptedLetter = (alphabet.charAt((parseInt(num)-kmove)%26) );
             decoded+=encryptedLetter;
           }
           else{
