@@ -61,8 +61,8 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron" style="background: url('cryptphoto.png');background-repeat:no-repeat;">
     <div class="container">
-        <h1 style="color: white">ColumnarTrans Encryption</h1>
-        <p style="color: white; font-weight:bold;">Use the text box below to input the text you wish to cipher. The columnartrans cipher uses the number of letters in the keyword to create that many columns of text and is printed by columns value in ascending order.</p>
+        <h1 style="color: white">ColumnarTrans Decryption</h1>
+        <p style="color: white; font-weight:bold;">Use the text box below to input the text you wish to decipher. The columnartrans decipher uses the number of letters in the keyword to create that many columns of text and is printed by columns value in ascending order.</p>
         <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>-->
       </div>
     </div>
@@ -71,7 +71,7 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-6">
-          <h2>Text to Encrypt:</h2>
+          <h2>Text to Decrypt:</h2>
           <textarea id="input"></textarea>
           <!--<p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>-->
         </div>
@@ -81,7 +81,7 @@
           <p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>
         </div>-->
         <div class="col-md-6">
-          <h2>Encrypted Text:</h2>
+          <h2>Decrypted Text:</h2>
           <textarea id="output"></textarea>
           <!--<p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>-->
         </div>
@@ -89,7 +89,7 @@
       <p>Input keyword(unique letters only): <input type="text" id="keyword"></p><br>
       <br>
       
-      <p><a class="btn btn-default" style="color:white; background-color:green; border-color:white;" id="encryptMe" role="button">Encrypt Me! &raquo;</a></p>
+      <p><a class="btn btn-default" style="color:white; background-color:green; border-color:white;" id="decryptMe" role="button">Decrypt Me! &raquo;</a></p>
 
       <hr>
 
@@ -108,11 +108,11 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
     <script>
-     document.getElementById("encryptMe").onclick = function (){
+     document.getElementById("decryptMe").onclick = function (){
         var decoded = '';
         var valueInput = document.getElementById("input").value;
-        valueInput=valueInput.replace(/\s/g, '');
         var keyword=document.getElementById("keyword").value;
+        valueInput=valueInput.replace(/\s/g, '');
         var keys=[];
         for(var l=0;l<keyword.length;l++){
           keys[l]=keyword.charAt(l);
@@ -125,16 +125,12 @@
           for(var r=0; r<(valueInput.length/keyword.length); r++) {
               matrix[r] = new Array(keyword.length);
           }
-        for(var i=0; i<(valueInput.length/keyword.length); i++) {
-          for(var j=0; j<keyword.length; j++) {
-            matrix[i][j] = valueInput.charAt((i*keyword.length)+j);
-          }
-        }
         for (var k =0; k<keyword.length; k++) {
           for(var m=0; m<keyword.length;m++){
-            if(keys[k]==keyword.charAt(m)){
+            if(keys[m]==keyword.charAt(k)){
               for(var n=0;n<(valueInput.length/keyword.length);n++){
-                decoded+=matrix[n][m];
+                matrix[n][m]=valueInput.charAt((n*keyword.length)+m);
+                console.log(n+","+m+"="+valueInput.charAt((n*keyword.length)+m));
               }
             }
           }

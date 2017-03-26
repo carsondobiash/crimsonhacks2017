@@ -26,8 +26,10 @@ document.getElementById("encryptMe").onclick = function (){
           valueInput+=" ";
         }
         var matrix = [];
+          for(var r=0; r<(valueInput.length/keyword.length); r++) {
+              matrix[r] = new Array(keyword.length);
+          }
         for(var i=0; i<(valueInput.length/keyword.length); i++) {
-          matrix[i] = [];
           for(var j=0; j<keyword.length; j++) {
             matrix[i][j] = valueInput.charAt(i+j);
           }
