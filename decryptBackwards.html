@@ -42,7 +42,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Cryptomania</a>
+          <a class="navbar-brand" href="index.html">Cryptomania</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <!--<form class="navbar-form navbar-right">
@@ -57,35 +57,39 @@
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
+
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron" style="background: url('cryptphoto.png');background-repeat:no-repeat;">
-      <div class="container">
-        <h1 style="color: white">Cryptomania</h1>
-        <p style="color: white">Cryptomania is an interactive website that encourages users to encrypt messages to their friends and challenge them to solve our daily twitter riddles.</p>
-        <p><a class="btn btn-primary btn-lg col-md-2" style="color:green; background-color:white; border-color:green;" href="encrypt.html" role="button" style="margin-right: 10px">Encrypt &raquo;</a></p>
-        <p><a class="btn btn-primary btn-lg col-md-2" style="color:green; background-color:white; border-color:green;" href="decrypt.html" role="button" style="margin-right: 10px">Decrypt &raquo;</a></p>
+    <div class="container">
+        <h1 style="color: white">Backwards Decryption</h1>
+        <p style="color: white">Use the text box below to input the text you wish to decipher. The backwards decipher spells out the backwards message forwards.</p>
+        <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>-->
       </div>
     </div>
 
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-4">
-          <h2>About Us:</h2>
-          <p>We all came together at the CrimsonHackathon with no knowledge of what to do and how to do it. After playing around with a few ideas we decided that this would be the most fun and challenging for all of us. </p>
-          <p><a class="btn btn-default" style="color:white; background-color:green; border-color:white;" href="aboutus.html" role="button">Checkout the Squad &raquo;</a></p>
+        <div class="col-md-6">
+          <h2>Text to Decrypt:</h2>
+          <textarea id="input"></textarea>
+          <!--<p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>-->
         </div>
-        <div class="col-md-4">
-          <h2>What is a Cipher?</h2>
-          <p>A cipher is used to encrypt text into messages that make it difficult for the reader to understand. Usually it requires a certain pattern or code to decrypt the text. </p>
-          <p><a class="btn btn-default" style="color:white; background-color:green; border-color:white;" href="https://www.wikiwand.com/en/Cipher" role="button">Read More on Wikipedia &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Coming Soon!</h2>
-          <p>Learn about our decrypter here!</p>
-          <p><a class="btn btn-default" style="color:white; background-color:green; border-color:white;" href="decrypt.html" role="button">View details &raquo;</a></p>
+        <!--<div class="col-md-4">
+          <h2></h2>
+          <p>Ciphers and Cryptology is  </p>
+          <p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>
+        </div>-->
+        <div class="col-md-6">
+          <h2>Decrypted Text:</h2>
+          <textarea id="output"></textarea>
+          <!--<p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>-->
         </div>
       </div>
+      
+      <br>
+
+      <p><a class="btn btn-default" style="color:white; background-color:green; border-color:white;" id="encryptMe" role="button">Decrypt Me! &raquo;</a></p>
 
       <hr>
 
@@ -103,5 +107,23 @@
     <script src="../../dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+        document.getElementById("encryptMe").onclick = function (){
+        var decoded = '';
+        var valueInput = document.getElementById("input").value;
+
+        for(var i = valueInput.length - 1; i > 0; i--){
+          var letter = valueInput.charAt(i);
+          
+          if(letter == " "){
+            var encryptedLetter = " ";
+          }else{
+            var encryptedLetter = letter;            
+          }
+          decoded += encryptedLetter;
+        }
+        document.getElementById("output").value = decoded;
+      } 
+    </script>
   </body>
 </html>

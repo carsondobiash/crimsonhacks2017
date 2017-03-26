@@ -60,10 +60,11 @@
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron" style="background: url('cryptphoto.png');background-repeat:no-repeat;">
-    <div class="container">
-        <h1 style="color: white">Caesar Decrypt</h1>
-        <p style="color: white">Use the text box below to input the text you wish to decipher. Then select the type of cipher you would like to use.</p>
-        <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>-->
+      <div class="container">
+        <h1 style="color: white">Cryptomania</h1>
+        <p style="color: white">Cryptomania is an interactive website that encourages users to encrypt messages to their friends and challenge them to solve our daily twitter riddles.</p>
+        <p><a class="btn btn-primary btn-lg col-md-2" style="color:green; background-color:white; border-color:green;" href="decryptAtBash.html" role="button" style="margin-right: 10px">Atbash &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg col-md-2" style="color:green; background-color:white; border-color:green;" href="decryptCaesar.html" role="button" style="margin-right: 10px">Caesar &raquo;</a></p>
       </div>
     </div>
 
@@ -107,24 +108,5 @@
     <script src="../../dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-    <script>
-     var letters = ['a', 'A', 'b', 'B', 'c', 'C', 'd', 'D', 'e', 'E', 'f', 'F', 'g', 'G', 'h', 'H', 'i', 'I', 'j', 'J', 'k', 'K', 'l', 'L', 'm', 'M', 'n', 'N', 'o', 'O', 'p', 'P', 'q', 'Q', 'r', 'R', 's', 'S', 't', 'T', 'u', 'U', 'v', 'V', 'w', 'W', 'x', 'X', 'y', 'Y', 'z', 'Z']
-     document.getElementById("decryptMe").onclick = function(){
-      var message = "";
-      var code=document.getElementById("input").value;
-      var key=document.getElementById("key").value;
-  for(var i = 0; i < code.length; i++) {
-    if(letters.indexOf(code[i]) != -1) {
-      var index = letters.indexOf(code[i]) - 2 * key;
-      if(index < 0) {
-        message += letters[52 - (Math.abs(index) % 52)];
-      }
-      else message += letters[index % 52];
-    }
-    else message += code[i];
-  }
-        document.getElementById("output").value = message;
-      }   
-    </script>
   </body>
 </html>
