@@ -42,7 +42,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">CryptoMania</a>
+          <a class="navbar-brand" href="index.html">Cryptomania</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <!--<form class="navbar-form navbar-right">
@@ -59,10 +59,10 @@
     </nav>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
+    <div class="jumbotron" style="background: url('cryptphoto.png');background-repeat:no-repeat;">
     <div class="container">
-        <h1>Atbash Encryption</h1>
-        <p>Use the text box below to input the text you wish to cipher. The Atbash cipher spells out the original message with the reverse alphabet instead of the regular one i.e. ABC = ZYX.</p>
+        <h1 style="color: white">Atbash Encryption</h1>
+        <p style="color: white">Use the text box below to input the text you wish to cipher. The Atbash cipher spells out the original message with the reverse alphabet instead of the regular one i.e. ABC = ZYX.</p>
         <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>-->
       </div>
     </div>
@@ -89,12 +89,12 @@
       
       <br>
 
-      <p><a class="btn btn-default" id="encryptMe" role="button">Encrypt Me! &raquo;</a></p>
+      <p><a class="btn btn-default" style="color:white; background-color:green; border-color:white;" id="encryptMe" role="button">Encrypt Me! &raquo;</a></p>
 
       <hr>
 
       <footer>
-        <p>&copy; 2017 Company, Inc.</p>
+        
       </footer>
     </div> <!-- /container -->
 
@@ -125,8 +125,6 @@
           }else{
             var encryptedLetter = reverse.charAt(index);            
           }
-
-
           decoded += encryptedLetter;
         }
         document.getElementById("output").value = decoded;
