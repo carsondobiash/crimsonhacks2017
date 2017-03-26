@@ -63,12 +63,12 @@
       <div class="container">
         <h1 style="color: white">Encrypt</h1>
         <p style="color: white;  font-weight:bold;">Here is Cryptomania's selection of different encryptions:</p>
-        <p><a class="btn btn-primary btn-lg col-md-2" style="color:green; background-color:white; border-color:green;" href="atbash.html" role="button" style="margin-right: 10px">Atbash &raquo;</a></p>
-        <p><a class="btn btn-primary btn-lg col-md-2" style="color:green; background-color:white; border-color:green;" href="caesar.html" role="button" style="margin-right: 10px">Caesar &raquo;</a></p>
-        <p><a class="btn btn-primary btn-lg col-md-2" style="color:green; background-color:white; border-color:green;" href="backwards.html" role="button" style="margin-right: 10px">Backwards &raquo;</a></p>
-        <p><a class="btn btn-primary btn-lg col-md-2" style="color:green; background-color:white; border-color:green;" href="provenzano.html" role="button" style="margin-right: 10px">Provenzano &raquo;</a></p>
-        <p><a class="btn btn-primary btn-lg col-md-2" style="color:green; background-color:white; border-color:green;" href="rails.html" role="button" style="margin-right: 10px">Rails &raquo;</a></p>
-        <p><a class="btn btn-primary btn-lg col-md-2" style="color:green; background-color:white; border-color:green;" href="columnarTrans.html" role="button" style="margin-right: 10px">Columnar Trans &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg col-md-2" id="atbash" style="color:green; background-color:white; border-color:green;" href="atbash.html" role="button" style="margin-right: 10px">Atbash &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg col-md-2" id="caesar" style="color:green; background-color:white; border-color:green;" href="caesar.html" role="button" style="margin-right: 10px">Caesar &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg col-md-2" id="backwards" style="color:green; background-color:white; border-color:green;" href="backwards.html" role="button" style="margin-right: 10px">Backwards &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg col-md-2" id="provenzano" style="color:green; background-color:white; border-color:green;" href="provenzano.html" role="button" style="margin-right: 10px">Provenzano &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg col-md-2" id="rails" style="color:green; background-color:white; border-color:green;" href="rails.html" role="button" style="margin-right: 10px">Rails &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg col-md-2" id="columnartrans" style="color:green; background-color:white; border-color:green;" href="columnarTrans.html" role="button" style="margin-right: 10px">Columnar Trans &raquo;</a></p>
       </div>
     </div>
 
@@ -76,19 +76,8 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-6">
-          <!--<h2>Text to Encrypt:</h2>
-          <textarea></textarea>
-          <p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>-->
-        </div>
-        <!--<div class="col-md-4">
-          <h2></h2>
-          <p>Ciphers and Cryptology is  </p>
-          <p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>
-        </div>-->
-        <div class="col-md-6">
-          <!--<h2>Encrypted Text:</h2>
-          <textarea></textarea>
-          <p><a class="btn btn-default" href="#" role="button">Encrypt Me! &raquo;</a></p>-->
+          <h2 id="h"></h2>
+          <p id="p"></p>
         </div>
       </div>
       
@@ -112,5 +101,60 @@
     <script src="../../dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+      //Atbash visibility
+      $("#atbash").hover(function(){
+        $("#h").append("Atbash");
+        $("#p").append("The Atbash cipher is a very common, simple cipher. It was for the Hebrew alphabet, but modified here to work with the English alphabet. Basically, when encoded, an \"A\" becomes a \"Z\", \"B\" turns into \"Y\", etc.");
+      }, function(){
+        $("#h").empty();
+        $("#p").empty();
+      })
+
+      //Caesar visibility
+      $("#caesar").hover(function(){
+        $("#h").append("Caesar");
+        $("#p").append("The Caesar cipher, also known as a shift cipher, is one of the simplest forms of encryption. It is a substitution cipher where each letter in the original message (called the plaintext) is replaced with a letter corresponding to a certain number of letters up or down in the alphabet.");
+      }, function(){
+        $("#h").empty();
+        $("#p").empty();
+      })
+      
+      //Backwards visibility
+      $("#backwards").hover(function(){
+        $("#h").append("Backwards");
+        $("#p").append("The Backwards cipher simply reverses the order of the letters in the entered statement.");
+      }, function(){
+        $("#h").empty();
+        $("#p").empty();
+      })
+
+      //Provenzano visibility
+      $("#provenzano").hover(function(){
+        $("#h").append("Provenzano");
+        $("#p").append("The Provenzano cipher, is a variation on the Caesar Cipher, is one of the simplest forms of encryption. It is a substitution cipher where each letter in the original messageis replaced with a number corresponding to it's place in the alphabet plus the key. Originally used by a Mafia member this cipher was easy to decipher and ultimately lead to his demise.");
+      }, function(){
+        $("#h").empty();
+        $("#p").empty();
+      })
+
+      //Rails visibility
+      $("#rails").hover(function(){
+        $("#h").append("Rails");
+        $("#p").append("The rails cipher uses the number of rails to create that many groups of text that when split up and layered on top of itself it forms a rectangle that if traced displays a code.");
+      }, function(){
+        $("#h").empty();
+        $("#p").empty();
+      })
+
+      //Columnar Trans visibility
+      $("#columnartrans").hover(function(){
+        $("#h").append("Columnar Trans");
+        $("#p").append("The columnartrans cipher uses the number of letters in the keyword to create that many columns of text and is printed by columns value in ascending order.");
+      }, function(){
+        $("#h").empty();
+        $("#p").empty();
+      })
+    </script> 
   </body>
 </html>
