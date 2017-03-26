@@ -117,7 +117,12 @@
         for(var i = 0; i < valueInput.length; ++i){
           var letter = valueInput.charAt(i);
           var index = alphabet.indexOf(letter);
-          var encryptedLetter = reverse.charAt(index);
+          if(letter == " "){
+            var encryptedLetter = " ";
+          }else{
+            var encryptedLetter = reverse.charAt(index);            
+          }
+
 
           decoded += encryptedLetter;
         }
