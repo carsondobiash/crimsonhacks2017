@@ -147,7 +147,7 @@
     <script>
         document.getElementById("decryptMe").onclick = function (){
         var decoded = '';
-        var valueInput = document.getElementById("input").value;
+        var valueInput = document.getElementById("output").value;
 
         for(var i = valueInput.length - 1; i >= 0; i--){
           var letter = valueInput.charAt(i);
@@ -159,7 +159,7 @@
           }
           decoded += encryptedLetter;
         }
-        document.getElementById("output").value = decoded;
+        document.getElementById("input").value = decoded;
       } 
     </script>
   </body>
